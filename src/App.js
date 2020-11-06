@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+import TodoList from './TodoList'
 
 function App() {
   return (
@@ -7,6 +8,7 @@ function App() {
       <header className="App-header">
         To-Do List
       </header>
+      <TodoList />
     </div>
   );
 }
