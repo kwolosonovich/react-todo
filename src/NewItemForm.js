@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Item from "./Item"
 
-const NewItemForm = () => {
+const NewItemForm = ({addItem}) => {  // pass in newForm function from parent
   
   const INITIAL_STATE = {
       name: "",
@@ -20,7 +20,8 @@ const NewItemForm = () => {
   // handle submit form
   const handleSubmit = (e) => {
     e.preventDefault();
-
+    addItem(formData.name, formData.date) // update the parent state
+    setFormData(INITIAL_STATE) // reset form after submit
   }
 
   return (

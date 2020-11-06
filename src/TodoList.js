@@ -13,9 +13,12 @@ const TodoList = () => {
     return (
       <div>
         <h3>To-Do List</h3>
-        <NewItemForm />
+        {/* form with addItem function passed as prop */}
+        <NewItemForm addItem={addItem}/>
         <div>
-          {items.map(({id, name, date}) => <Item id={id} name={name} key={id} date={date} />)}
+          {items.map(({ id, name, date }) => (
+            <Item id={id} name={name} key={id} date={date} />
+          ))}
         </div>
       </div>
     );
