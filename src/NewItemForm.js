@@ -1,11 +1,24 @@
 import React, { useState } from "react";
 import Item from "./Item"
+// import { Formik, Form, Field } from "formik";
+// import * as Yup from "yup";
+
+
+// const validate = values => {
+//   const errors = {};
+//   if (!values.name) {
+//     errors.name = "Required";
+//   } else if (values.name.length < 2) {
+//     errors.name = 'Invalid length'
+//   }
+//   return errors;
+// }
 
 const NewItemForm = ({addItem}) => {  // pass in newForm function from parent
   
   const INITIAL_STATE = {
       name: "",
-      data: ""
+      date: ""
   }
 
   const [formData, setFormData] = useState(INITIAL_STATE)  // form state is local to form, values are passed up to parent 
@@ -25,31 +38,33 @@ const NewItemForm = ({addItem}) => {  // pass in newForm function from parent
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label htmlFor="name">To-Do: </label>
-      <input
-        id="name"
-        type="text"
-        name="name"
-        placeholder="Add"
-        value={formData.name}
-        onChange={handleChange}
-      />
+    <div>
+      <form onSubmit={handleSubmit}>
+        <label htmlFor="name">To-Do: </label>
+        <input
+          id="name"
+          type="text"
+          name="name"
+          placeholder="Add"
+          value={formData.name}
+          onChange={handleChange}
+        />
 
-      <label htmlFor="date">Due By: </label>
-      <input
-        id="date"
-        type="text"
-        name="date"
-        placeholder="Date"
-        value={formData.date}
-        onChange={handleChange}
-      />
-      {/* test if form is working by rendering input text */}
-      {/* <p>{formData.name}</p>
-      <p>{formData.date}</p> */}
-      <button>Add</button>
-    </form>
+        <label htmlFor="date">Due By: </label>
+        <input
+          id="date"
+          type="text"
+          name="date"
+          placeholder="Date"
+          value={formData.date}
+          onChange={handleChange}
+        />
+        {/* test if form is working by rendering input text */}
+        {/* <p>{formData.name}</p>
+        <p>{formData.date}</p> */}
+        <button>Add</button>
+      </form>
+    </div>
   );
 
 };

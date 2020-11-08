@@ -6,7 +6,7 @@ test("renders without crashing", () => {
   render(<Item />);
 });
 
-// test("matches snapshot", () => {
-//   const { asFragment } = render(<Item />);
-//   expect(asFragmnet()).toMatchSnapshot();
-// });
+test("matches snapshot", () => {
+  const { asFragment } = render(<Item />);
+  expect(asFragment()).toMatchSnapshot();
+});

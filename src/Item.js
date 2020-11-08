@@ -5,7 +5,7 @@ const Item = ({id, name, date}) => {
     return (
         <div>
             <ul> 
-                <li>{id}{": "}{name}</li>
+                <li>{"To-Do:"}{" "}{name}</li>
                 <li>Due By: {date} </li>
             </ul>
         </div>

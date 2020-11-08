@@ -4,13 +4,13 @@ import NewItemForm from "./NewItemForm";
 import {v4 as uuid} from "uuid";
 
 const TodoList = () => {
-    const INITIAL_STATE = [
-      { id: 1, name: "Shopping", date: "12/1/20" }
-    ]
-    const [items, setItems] = useState(INITIAL_STATE);
+    // initial state
+    const [items, setItems] = useState([]);
+
     const addItem = (newItem) => {
       setItems(items => [...items, {...newItem, id: uuid() }]) // form data object spread into new obj, with id added
     }
+    
     return (
       <div>
         <h3>To-Do List</h3>
