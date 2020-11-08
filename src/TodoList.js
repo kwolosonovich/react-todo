@@ -1,14 +1,15 @@
 import React, {useState} from "react";
-import Item from './Item'
+import Item from './Item';
 import NewItemForm from "./NewItemForm";
+import {v4 as uuid} from "uuid";
 
 const TodoList = () => {
     const INITIAL_STATE = [
       { id: 1, name: "Shopping", date: "12/1/20" }
     ]
     const [items, setItems] = useState(INITIAL_STATE);
-    const addItem = (name, date) => {
-      setItems(items => [...items, {name, date}])
+    const addItem = (newItem) => {
+      setItems(items => [...items, {...newItem, id: uuid() }]) // form data object spread into new obj, with id added
     }
     return (
       <div>

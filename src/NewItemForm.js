@@ -20,7 +20,7 @@ const NewItemForm = ({addItem}) => {  // pass in newForm function from parent
   // handle submit form
   const handleSubmit = (e) => {
     e.preventDefault();
-    addItem(formData.name, formData.date) // update the parent state
+    addItem({...formData}) // update the parent state with formData obj
     setFormData(INITIAL_STATE) // reset form after submit
   }
 
