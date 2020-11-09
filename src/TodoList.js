@@ -13,7 +13,6 @@ const TodoList = () => {
     
     return (
       <div>
-        <h3>To-Do List</h3>
         {/* form with addItem function passed as prop */}
         <NewItemForm addItem={addItem}/>
         <div>
