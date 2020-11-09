@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import TodoList from './TodoList'
+import './Item.css'
 
 const Item = ({id, name, date}) => {
     return (

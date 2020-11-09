@@ -1,0 +1,12 @@
+label {
+    display: block;
+}
+input {
+    display: inline-block;
+    margin: 10px auto;
+}
+button {
+    display: block;
+    position: relative;
+    margin: 10px auto;
+}
