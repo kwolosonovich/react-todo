@@ -23,8 +23,10 @@ const NewItemForm = ({addItem}) => {  // pass in newForm function from parent
   }
 
   const [formData, setFormData] = useState(INITIAL_STATE)  // form state is local to form, values are passed up to parent 
+  
   const handleChange = (e) => {
     const {name, value} = e.target;
+
     setFormData(formData => ({
       ...formData,
       [name]: value
