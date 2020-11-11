@@ -6,7 +6,7 @@ import './NewItemForm.css'
 
 
 // const validate = values => {
-//   const errors = {};
+//   let errors = {};
 //   if (!values.name) {
 //     errors.name = "Required";
 //   } else if (values.name.length < 2) {
@@ -62,9 +62,6 @@ const NewItemForm = ({addItem}) => {  // pass in newForm function from parent
           value={formData.date}
           onChange={handleChange}
         />
-        {/* test if form is working by rendering input text */}
-        {/* <p>{formData.name}</p>
-        <p>{formData.date}</p> */}
         <button>Add</button>
       </form>
     </div>
