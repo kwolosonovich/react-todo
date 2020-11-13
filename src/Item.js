@@ -10,28 +10,21 @@ const Item = ({ id, name, date, updateItem, handleRemove }) => {
   const [editItem, setEditItem] = useState(name);
   const [isEditing, setIsEditing] = useState(false);
 
-  // update item
-  // const update = (evt) => updateItem(evt.target.value);
-  const update = (evt) => updateItem(editItem);
-
-
   // toggle edit status
   const toggleEdit = () => {
     setIsEditing((edit) => !edit);
   };
+
   const handleChange = (evt) => {
     let updated = evt.target.value;
-    // console.log(evt.value); // undefined
-    // console.log(name); // original name value
-    // console.log(form.name); // undefined
     console.log(updated)
     setEditItem(updated);
   };;
 
   const handleUpdate = (evt) => {
     evt.preventDefault();
-    updateItem(id, evt.target.value);
-    setIsEditing(true);
+    updateItem(id, evt.target.parentElement.firstElementChild.value);
+    setIsEditing(false);
   };
 
   // form display
@@ -52,7 +45,7 @@ const Item = ({ id, name, date, updateItem, handleRemove }) => {
   let editForm = (
     <div>
       <form>
-        <input type="text" name="updated" onChange={handleChange} />
+        <input type="text" name="updated" />
         <button onClick={handleUpdate}>Update</button>
         <button onClick={remove}>X</button>
       </form>
