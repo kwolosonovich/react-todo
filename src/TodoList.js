@@ -14,6 +14,9 @@ const TodoList = () => {
   
   // update to-do item
   const updateItem = (id, updatedItem) => {
+    // console.log(id)
+    // console.log(updateItem);
+
     setItems((items) =>
       items.map((item) =>
         item.id === id

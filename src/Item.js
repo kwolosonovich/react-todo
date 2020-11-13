@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import TodoList from './TodoList'
+// import TodoList from './TodoList'
 import './Item.css'
 
 const Item = ({ id, name, date, updateItem, handleRemove }) => {
@@ -11,20 +11,27 @@ const Item = ({ id, name, date, updateItem, handleRemove }) => {
   const [isEditing, setIsEditing] = useState(false);
 
   // update item
-  const update = (evt) => updateItem(evt.target.value);
+  // const update = (evt) => updateItem(evt.target.value);
+  const update = (evt) => updateItem(editItem);
+
 
   // toggle edit status
   const toggleEdit = () => {
     setIsEditing((edit) => !edit);
   };
   const handleChange = (evt) => {
-    setEditItem(evt.target.value);
-  };
+    let updated = evt.target.value;
+    // console.log(evt.value); // undefined
+    // console.log(name); // original name value
+    // console.log(form.name); // undefined
+    console.log(updated)
+    setEditItem(updated);
+  };;
 
   const handleUpdate = (evt) => {
     evt.preventDefault();
-    update(id, editItem);
-    setIsEditing(false);
+    updateItem(id, evt.target.value);
+    setIsEditing(true);
   };
 
   // form display
@@ -40,22 +47,19 @@ const Item = ({ id, name, date, updateItem, handleRemove }) => {
       </ul>
     </div>
   );
-  
+
   // edit form display
   let editForm = (
-      <div>
-        <ul>
-          <li>
-            {"To-Do:"} {name}
-          </li>
-          <li>Due By: {date} </li>
-          <button onClick={editItem}>Edit</button>
-          <button onClick={remove}>X</button>
-        </ul>
-      </div>
-    );
+    <div>
+      <form>
+        <input type="text" name="updated" onChange={handleChange} />
+        <button onClick={handleUpdate}>Update</button>
+        <button onClick={remove}>X</button>
+      </form>
+    </div>
+  );
 
-  return (isEditing ? form : editForm)
+  return (isEditing ? editForm : form)
 };
 
 export default Item;
